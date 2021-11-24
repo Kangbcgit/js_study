@@ -39,3 +39,4 @@ var UserPhoneNumber = 1; // pascal case (C계열)
 var a = '홍길동'; // userName
 var zzz = 'abc1234%@gmail.com'; // userEmail
 var fzd = '남자'; // userGender
+var  
