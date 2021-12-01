@@ -13,15 +13,12 @@ while (true) {
 // 난이도 선택 문구 출력
 if (difficulty === 1) {
     var i = 3;
-    alert(`Up & Down 게임 - ${min} ~ ${max} 사이의 무작위 숫자를 ${i}번 안에 맞춰보세요!!!`);
 } else if (difficulty === 2) {
     var i = 6
-    alert(`Up & Down 게임 - ${min} ~ ${max} 사이의 무작위 숫자를 ${i}번 안에 맞춰보세요!!!`);
 } else if (difficulty === 3) {
     var i = 10;
-    alert(`Up & Down 게임 - ${min} ~ ${max} 사이의 무작위 숫자를 ${i}번 안에 맞춰보세요!!!`);
 }
-
+alert(`Up & Down 게임 - ${min} ~ ${max} 사이의 무작위 숫자를 ${i}번 안에 맞춰보세요!!!`);
 // 랜덤 값 할당
 var random = Math.floor(Math.random() * (max - min + 1)) + min;
 
