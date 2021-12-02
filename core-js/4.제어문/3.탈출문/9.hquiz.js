@@ -50,10 +50,16 @@ class Reader
     }
 }
 
-const __input = require('fs').readFileSync('/dev/stdin').toString().split(' ').map(v => Number(v));
+const __input = require('fs').readFileSync('/dev/stdin').toString().split('\n').map(v => Number(v));
 var __reader = new Reader(__input);
 
-var a = Math.floor(Math.random() * 5) + 100,
-    b = Math.floor(Math.random() * 5) + 100;
+var a = __reader.read();
+var b = __Reader.read();
 
-
+if (a > b) {
+    console.log(`>`);
+} else if (a < b) {
+    console.log(`<`);
+} else if (a === b) {
+    console.log(`==`);
+}
