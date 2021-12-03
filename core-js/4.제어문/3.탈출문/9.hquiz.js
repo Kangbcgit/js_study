@@ -36,10 +36,8 @@ while (i < userInputStar) {
 alert(star);
 */
 
-class Reader
-{
-    constructor(__input)
-    {
+class Reader {
+    constructor(__input) {
         this.__input = __input;
         this.__index = 0;
     }
@@ -50,16 +48,22 @@ class Reader
     }
 }
 
-const __input = require('fs').readFileSync('/dev/stdin').toString().split('\n').map(v => Number(v));
+const __input = require('fs').readFileSync('/dev/stdin').toString().split(/ |\n/).map(v => Number(v));
 var __reader = new Reader(__input);
 
-var a = __reader.read();
-var b = __Reader.read();
+var x = __reader.read();
+var y = __reader.read();
 
-if (a > b) {
-    console.log(`>`);
-} else if (a < b) {
-    console.log(`<`);
-} else if (a === b) {
-    console.log(`==`);
+if (x > 0) {
+    if (y > 0) {
+        console.log('1');
+    } else {
+        console.log('4');
+    }
+} else {
+    if (y > 0) {
+        console.log('2');
+    } else {
+        console.log('3');
+    }
 }
