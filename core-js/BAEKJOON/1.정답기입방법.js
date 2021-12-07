@@ -113,6 +113,27 @@ function __convert(__input_string) {
     return __reader;
 }
 
+
+
 function __action(__reader) {
-    // write your code
+    if (true) {
+        var N = 1;
+        var NBackup = N;
+        var ten = N % 10;
+        var M = 0;
+        var i = 0;
+        while (true) {
+            if (N < 10) {
+                M = (N * 10) + N;
+            } else {
+                M = ((ten * 10) + (((N - ten) / 10) + ten) % 10);
+            }
+            N = M;
+            i++;
+            if (NBackup === N) {
+                break;
+            }
+        }
+    }
+    console.log(i);
 }
