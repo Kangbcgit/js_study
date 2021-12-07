@@ -1,19 +1,19 @@
 //성능 필요시 이것 엑세스 런타임 에러시 아래것
-// class Reader {
-//     constructor(__input) {
-//         this.__input = __input;
-//         this.__index = 0;
-//     }
+class Reader {
+    constructor(__input) {
+        this.__input = __input;
+        this.__index = 0;
+    }
 
-//     read() {
-//         const output = this.__input[this.__index++];
-//         return output;
-//     }
-// }
+    read() {
+        const output = this.__input[this.__index++];
+        return output;
+    }
+}
 
-// const __input = require('fs').readFileSync('/dev/stdin').toString().split(/ |\n/).map(v => Number(v));
-// var __reader = new Reader(__input);
-// // 코드 작성~~
+const __input = require('fs').readFileSync('/dev/stdin').toString().split(/ |\n/).map(v => Number(v));
+var __reader = new Reader(__input);
+// 코드 작성~~
 /*
 class Reader {
     constructor(__input) {
@@ -116,24 +116,21 @@ function __convert(__input_string) {
 
 
 function __action(__reader) {
-    if (true) {
-        var N = 1;
-        var NBackup = N;
-        var ten = N % 10;
-        var M = 0;
-        var i = 0;
-        while (true) {
-            if (N < 10) {
-                M = (N * 10) + N;
-            } else {
-                M = ((ten * 10) + (((N - ten) / 10) + ten) % 10);
-            }
-            N = M;
-            i++;
-            if (NBackup === N) {
-                break;
-            }
+    var N = __reader.read();
+    var num = __reader.read();
+    var result = [];
+    var max = +result[0];
+    var min = +result[0];
+    for (var i = 0; i < N; i++) {
+        result.push(num);
+    }
+    for (var j = 1; j < result.length; j++) {
+        if (max < result[j]) {
+            max += +result[j]
+        } else if (min > result[j]) {
+            min += +result[j]
         }
     }
-    console.log(i);
+
+    console.log(`${min} ${max}`);
 }
