@@ -20,13 +20,16 @@ function calcBMI(h, w) {
     } else {
         output += '당신은 정상체중입니다.';
     }
-    console.log(output);
-    return Math.floor((bmi * 100)) / 100;
+    return [Math.floor((bmi * 100)) / 100, output];
 }
 
-
+//원하는 자리수만큼 반올림해주느 함수
+function round(number, pos) {
+    return Math.round(number * 10 ** pos) * 10 ** pos;
+}
 
 var h = 178.4,
     w = 78.2;
 var myBmi = calcBMI(h, w);
-console.log(`키 -> ${h}cm, 체중 -> ${w}kg의 체질량지수는 ${myBmi}입니다.`);
+console.log(`키 -> ${h}cm, 체중 -> ${w}kg의 체질량지수는 ${myBmi[0]}입니다.`);
+console.log(`${myBmi[1]}`);
