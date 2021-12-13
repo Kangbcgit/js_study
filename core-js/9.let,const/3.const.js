@@ -27,3 +27,5 @@ console.log(PERSON.name);
 for (let i = 0; i < 5; i++) {
     console.log(i);
 }
+
+document.getElementById('')
