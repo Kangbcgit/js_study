@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자식노드탐색</title>
+</head>
+<body>
+        <ul id="fruits">
+            <li class="apple">사과</li>
+            <li class="banana">바나나</li>
+            <li class="grape">포도</li>
+        </ul>
+
+        <div class="ttt">
+            <p>abcd</p>
+        </div>
+
+        <script>
+
+            //노드탐색의 기점이 되는 요소 취득
+            const $fruits = document.querySelector('#fruits');
+            // console.log($fruits);
+
+            //기준 노드의 모든 자식노드를 탐색, 텍스트노드 포함 === 쓰지마라;
+            // const $childs = $fruits.childNodes;
+            
+            //기준 노드의 모든 자식노드를 탐색, 텍스트노드 제외 === 이걸써라;
+            const $childs = $fruits.children;
+
+            console.log($childs);
+            
+            // const $first = $childs[0];
+            // const $last = $childs[$childs.length - 1];
+
+            //기준 노드의 첫번째 자식노드를 탐색, 텍스트노드 포함 === 쓰지마라;
+            // const $first = $fruits.firstChild;
+
+            const $first = $fruits.firstElementChild;
+            const $last = $fruits.lastElementChild;
+            console.log($first);
+            console.log($last);
+
+            console.log('=====================');
+
+            const $div = document.querySelector('.ttt');
+            //기준노드의 자식이 있는지를 탐색, 텍스트노드 포함 === 쓰지마라;
+            // console.log($div.hasChildNodes());
+            console.log(!!$div.children.length);
+
+
+            
+        </script>
+
+
+
+</body>
+</html>

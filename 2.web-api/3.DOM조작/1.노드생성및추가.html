@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 생성 및 추가</title>
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li>사과</li>
+    </ul>
+
+    <script>
+        const appendNewLi = text => {
+            //1. 새로운 요소노드를 생성
+            // <li></li>
+            const $newLi = document.createElement('li');
+
+            //2. 생성된 노드에 텍스트 추가
+            // <li>text</li>
+            $newLi.textContent = text;
+
+            //3. 새로운 노드를 ul의 자식으로 추가
+            const $ul = document.querySelector('#fruits');
+            $ul.appendChild($newLi);
+        }
+
+        const fArr = ['바나나', '포도', '뚜왈기', '복숭아', '참외', '수박'];
+        for (let i of fArr) {
+            appendNewLi(i);
+        }
+    </script>
+</body>
+
+</html>
