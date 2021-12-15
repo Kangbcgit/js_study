@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 교체 혹은 삭제</title>
+</head>
+<body>
+<ul id="fruits">
+    <li>사과</li>
+    <li>뜨왈기</li>
+</ul>
+
+    <script>
+        const $fruits = document.querySelector('#fruits');
+        const $mango = $fruits.firstElementChild.cloneNode();
+        $mango.textContent = '망고';
+        // $fruits.insertBefore($mango, $fruits.firstElementChild)
+
+        //노드 교체
+        $fruits.replaceChild($mango, $fruits.firstElementChild);
+
+        $fruits.removeChild($fruits.lastElementChild);
+    </script>
+</body>
+</html>
