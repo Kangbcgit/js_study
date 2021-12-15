@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성값 조작</title>
+</head>
+<body>
+
+    <input type="text" id="user-name" value="홍길동">
+
+    <script>
+        const $input = document.querySelector('#user-name');
+
+        const uName = $input.getAttribute('value');
+        console.log(uName);
+        
+        console.log($input.getAttribute('id'));
+
+        //속성값 변경
+        // $input.attributes.value.value = '김철수'
+
+        $input.setAttribute('value', '김철수');
+        $input.setAttribute('id', 'member-name');
+
+        //속성값 제거
+        $input.removeAttribute('value');
+
+        //속성값 추가
+        $input.setAttribute('placeholder', '야임마! 나 힌트야');
+
+        //속성값 존재 유무 확인
+        if ($input.hasAttribute('type')) {
+            alert('타이틀 속성 있음!!');
+        }
+    </script>
+
+</body>
+</html>
