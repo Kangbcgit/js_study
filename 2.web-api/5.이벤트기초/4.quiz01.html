@@ -29,17 +29,13 @@
         const $text = document.querySelector('.text');
         $hider.addEventListener('click', () => {
             if ($hider.value === 'on') {
-                $hider.addEventListener('click', () => {
-                    $text.classList.add('hide');
-                    $hider.textContent = '텍스트 보이기!';
-                    $hider.value = 'off';
-                })
+                $text.classList.add('hide');
+                $hider.textContent = '텍스트 보이기!';
+                $hider.value = 'off';
             } else if ($hider.value === 'off') {
-                $hider.addEventListener('click', () => {
-                    $text.classList.remove('hide');
-                    $hider.textContent = '텍스트 숨기기!';
-                    $hider.value = 'on';
-                })
+                $text.classList.remove('hide');
+                $hider.textContent = '텍스트 숨기기!';
+                $hider.value = 'on';
             }
         })
     </script>
