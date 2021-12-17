@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 위임</title>
+
+    <style>
+        #fruits {
+            display: flex;
+            list-style: none;
+            padding: 20px;
+            border: 2px solid red;
+        }
+
+        #fruits li {
+            width: 100px;
+            cursor: pointer;
+            background: orange;
+        }
+
+        .active {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li id="apple">apple</li>
+        <li id="banana">banana</li>
+        <li id="grape">grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg"></em></div>
+
+    <script>
+        const $fruits = document.querySelector('#fruits');
+        const $children = [...$fruits.children];
+
+        //이벤트 발생 타겟을 제한
+        // if (!e.target.matches('#fruits > li')) {
+        //     return;
+        // }
+
+        //이벤트 핸들러
+        const activate = e => {
+            for (let i of $children) {
+                if (e.target === i) {
+                    i.classList.add('active');
+                    document.querySelector('.msg').textContent = i.textContent;
+                } else {
+                    if (!(e.target === $fruits)) {
+                        i.classList.remove('active');
+                    }
+                }
+            }
+        }
+        $fruits.addEventListener('click', activate);
+    </script>
+
+</body>
+
+</html>

@@ -17,7 +17,7 @@
 
 <body>
 
-    <button id="hider" value='on'>텍스트 숨기기!</button>
+    <button id="hider" data-value='on'>텍스트 숨기기!</button>
 
     <div class="text">안녕하세요!</div>
 
@@ -28,14 +28,14 @@
         const $hider = document.querySelector('#hider');
         const $text = document.querySelector('.text');
         $hider.addEventListener('click', () => {
-            if ($hider.value === 'on') {
+            if ($hider.dataset.value === 'on') {
                 $text.classList.add('hide');
                 $hider.textContent = '텍스트 보이기!';
-                $hider.value = 'off';
-            } else if ($hider.value === 'off') {
+                $hider.dataset.value = 'off';
+            } else if ($hider.dataset.value === 'off') {
                 $text.classList.remove('hide');
                 $hider.textContent = '텍스트 숨기기!';
-                $hider.value = 'on';
+                $hider.dataset.value = 'on';
             }
         })
     </script>
