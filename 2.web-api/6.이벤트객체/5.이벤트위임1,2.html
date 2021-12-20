@@ -19,6 +19,7 @@
             width: 100px;
             cursor: pointer;
             background: orange;
+            margin-right: 10px;
         }
 
         .active {
@@ -39,9 +40,25 @@
 
     <div>선택된 과일: <em class="msg"></em></div>
 
+    <label>
+        # 새로운 과일 추가하기:
+        <input type="text" class="text-box">
+        <button id="add">추가</button>
+    </label>
+
     <script>
+        const $addButton = document.querySelector('#add');
+        const $textBox = document.querySelector('.text-box');
+        $addButton.addEventListener('click', fruitsname => {
+            let $newFruits = document.createElement('li');
+            $newFruits.textContent = $textBox.value;
+            //toLowerCase(): 문자열을 전부 소문자로 변환 <-> toUpperCase()
+            $newFruits.setAttribute('id', $newFruits.textContent.toLowerCase());
+            $fruits.appendChild($newFruits);
+            $textBox.value = ''
+        });
+
         const $fruits = document.querySelector('#fruits');
-        const $children = [...$fruits.children];
 
         //이벤트 발생 타겟을 제한
         // if (!e.target.matches('#fruits > li')) {
@@ -50,6 +67,7 @@
 
         //이벤트 핸들러
         const activate = e => {
+        const $children = [...$fruits.children];
             for (let i of $children) {
                 if (e.target === i) {
                     i.classList.add('active');
@@ -60,6 +78,7 @@
                     }
                 }
             }
+            console.log($children);
         }
         $fruits.addEventListener('click', activate);
     </script>
