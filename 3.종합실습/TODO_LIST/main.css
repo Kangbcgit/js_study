@@ -81,6 +81,10 @@ section.todo-template .content .todo-list {
     overflow: auto;
 }
 
+section.todo-template .content .todo-insert #todo-text.again {
+    background: red;
+}
+
 section.todo-template .content .todo-list .todo-list-item {
     display: flex;
     padding: 16px;
