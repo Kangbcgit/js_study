@@ -11,8 +11,8 @@
       "id": 2,
       "account": "def1234",
       "password": "ddd1234!",
-      "userName": "박영희",
-      "address": "서울시 중구"
+      "userName": "영희팍",
+      "address": "로스엔젤레스"
     },
     {
       "id": 3,
@@ -20,13 +20,6 @@
       "password": "ddd4321",
       "userName": "마이콜",
       "address": "대전시 서구"
-    },
-    {
-      "id": "none",
-      "account": "thslrll",
-      "userName": "강병찬",
-      "password": "rlrlrlskr",
-      "address": "대전시 대덕구"
     }
   ]
 }

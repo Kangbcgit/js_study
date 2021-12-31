@@ -5,20 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>쌤서버 ㄱㄱ</title>
     <style>
         label {
             display: block;
         }
+
         .list {
             height: 50vh;
             border-top: 1px solid #000;
             margin-top: 20px;
         }
+
         .list ul li {
             margin-top: 15px;
             font-size: 20px;
         }
+
         .list ul li:first-child {
             margin-top: 0;
             color: blue;
@@ -26,6 +29,7 @@
             font-size: 30px;
             border-bottom: 1px solid #000;
         }
+
         .list ul li button {
             background: red;
             border: none;
@@ -34,7 +38,6 @@
             border-radius: 5px;
             color: #fff;
         }
-        
     </style>
 </head>
 
@@ -49,7 +52,7 @@
             # 국어: <input type="text" name="kor">
         </label>
         <label>
-            # 영어: <input type="password" name="eng">
+            # 영어: <input type="text" name="eng">
         </label>
         <label>
             # 수학: <input type="text" name="math">
@@ -73,10 +76,10 @@
                 e.preventDefault();
                 const xhr = new XMLHttpRequest();
                 const data = {
-                    name: document.querySelector('input[name=name]').value,
-                    kor: document.querySelector('input[name=kor]').value,
-                    eng: document.querySelector('input[name=eng]').value,
-                    math: document.querySelector('input[name=math]').value
+                    name: +document.querySelector('input[name=name]').value,
+                    kor: +document.querySelector('input[name=kor]').value,
+                    eng: +document.querySelector('input[name=eng]').value,
+                    math: +document.querySelector('input[name=math]').value
                 };
                 const sendData = JSON.stringify(data);
                 xhr.open('POST', 'http://192.168.1.91:8181/api/score');
@@ -84,7 +87,6 @@
                 xhr.setRequestHeader('content-type', 'application/json');
                 xhr.send(sendData);
                 // xhr.send();
-                
                 xhr.onload = e => {
                     console.log(xhr.status); //응답코드
                     if (xhr.status === 200) {
@@ -94,7 +96,7 @@
                     }
                 };
             });
-            
+
             (() => {
                 const xhr = new XMLHttpRequest();
                 xhr.open('GET', 'http://192.168.1.91:8181/api/score');
@@ -102,24 +104,23 @@
                 xhr.onload = e => {
                     const items = JSON.parse(xhr.response);
                     console.log(xhr.status); // 응답코드
-                    if (xhr.status === 200){
-                        console.log('성공');
-                        console.log(items);
+                    if (xhr.status === 200) {
+                        document.querySelector('.number').textContent += items.length + '명';
+                        for (let prop of items) {
+                            const {stuNum, name, kor, eng, math, total, average} = prop;
+                            let newLi = document.createElement('li');
+                            let newBtn = document.createElement('button');
+                            newLi.dataset.id = stuNum;
+                            newBtn.textContent = '삭제'
+                            newLi.textContent =`# 학번: ${stuNum}, 이름: ${name}, 국어: ${kor}점, 영어: ${eng}점, 수학: ${math}점, 총점: ${total}점, 평균: ${average}점`
+                            document.querySelector('.list ul').appendChild(newLi);
+                            document.querySelector(`li[data-id="${stuNum}"]`).appendChild(newBtn);
+
+                        }
                     } else {
                         console.error('통신 실패');
                     }
-                    document.querySelector('.number').textContent += Object.keys(items).length + '명';
-                    for (let i = 0, j = items.length; i < j; i++) {
-                        const {stuNum, name, kor, eng, math, total, average} = items[i];
-                        let newLi = document.createElement('li');
-                        let newBtn = document.createElement('button');
-                        newLi.dataset.id = i;
-                        newBtn.textContent = '삭제'
-                        newLi.textContent = `# 학번: ${stuNum}, 이름: ${name}, 국어: ${kor}점, 영어: ${eng}점, 수학: ${math}점, 총점: ${total}점, 평균: ${average}점`
-                        document.querySelector('.list ul').appendChild(newLi);
-                        document.querySelector(`li[data-id="${i}"]`).appendChild(newBtn);
-                        
-                    }
+
 
                 }
             })();
