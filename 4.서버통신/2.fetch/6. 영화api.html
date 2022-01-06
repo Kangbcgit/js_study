@@ -14,7 +14,7 @@
             padding: 0;
         }
 
-        .wrap {
+        body {
             background: #000;
         }
 
@@ -128,10 +128,6 @@
         </div>
     </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-    </button>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -160,6 +156,7 @@
             for (let mov of movies) {
                 const {
                     large_cover_image,
+                    medium_cover_image,
                     small_cover_image,
                     title,
                     year,
@@ -170,7 +167,7 @@
 
                 tag += `
                 <div class="movie" data-id="${id}">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#id${id}">
                         <div class="img-box">
                             <img src="${large_cover_image}" alt="표지사진">
                         </div>
@@ -180,6 +177,24 @@
                             <div class="rating">${rating}</div>
                         </div>
                     </a>
+                </div>
+                <div class="modal fade" id="id${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="${medium_cover_image}" alt="표지사진" align="left">
+                                ${description_full}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 `
                 // details += {id: `${id}`, description_full: `${description_full}`, small_cover_image: `${small_cover_image}`}
@@ -193,24 +208,24 @@
             //     movieListChildren[i].
             // }
 
-            document.querySelector('.movie-list').addEventListener('click', e => {
-                e.preventDefault();
-                if(!e.target.matches('.movie *')) return;
-                console.log(e.target.closest('.movie'));
-                fetch(`https://yts.mx/api/v2/list_movies.json?limit=20&page=1&sort_by=${nowUrl}`)
-                    .then(res => res.json())
-                    .then(result => {
-                        console.log(+e.target.closest('.movie').dataset.id, result.data.movies[0].id);
-                        for (let prop of result.data.movies) {
-                            if (prop.id === +e.target.closest('.movie').dataset.id) {
-                                document.querySelector('.modal-body').innerHTML = `
-                                <img src="${prop.small_cover_image}" alt="표지사진">
-                                <div>${prop.description_full}</div>
-                                `;
-                            }
-                        }
-                    })
-            });
+            // document.querySelector('.movie-list').addEventListener('click', e => {
+            //     e.preventDefault();
+            //     if(!e.target.matches('.movie *')) return;
+            //     console.log(e.target.closest('.movie'));
+            //     fetch(`https://yts.mx/api/v2/list_movies.json?limit=20&page=1&sort_by=${nowUrl}`)
+            //         .then(res => res.json())
+            //         .then(result => {
+            //             console.log(+e.target.closest('.movie').dataset.id, result.data.movies[0].id);
+            //             for (let prop of result.data.movies) {
+            //                 if (prop.id === +e.target.closest('.movie').dataset.id) {
+            //                     document.querySelector('.modal-body').innerHTML = `
+            //                     <img src="${prop.small_cover_image}" alt="표지사진">
+            //                     <div>${prop.description_full}</div>
+            //                     `;
+            //                 }
+            //             }
+            //         })
+            // });
         }
 
 
