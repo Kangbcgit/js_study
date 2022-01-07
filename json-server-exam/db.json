@@ -28,5 +28,27 @@
       "password": "WorldHello",
       "address": "js"
     }
+  ],
+  "searchKeyword": [
+    {
+      "query": "이거ㄴ",
+      "id": 1
+    },
+    {
+      "query": "ㅋㅋㅋ",
+      "id": 2
+    },
+    {
+      "query": "ㅋㅋㅋ",
+      "id": 3
+    },
+    {
+      "query": "ㅣㅏㅏㅣㅏ",
+      "id": 4
+    },
+    {
+      "query": "고양이",
+      "id": 5
+    }
   ]
 }
