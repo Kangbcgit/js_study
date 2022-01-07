@@ -11,8 +11,8 @@
       "id": 2,
       "account": "def1234",
       "password": "ddd1234!",
-      "userName": "영희팍",
-      "address": "로스엔젤레스"
+      "userName": "펫치수정킹",
+      "address": "캘리포니아"
     },
     {
       "id": 3,
@@ -20,6 +20,13 @@
       "password": "ddd4321",
       "userName": "마이콜",
       "address": "대전시 서구"
+    },
+    {
+      "id": 100,
+      "account": "HelloWorld",
+      "userName": "Javascript",
+      "password": "WorldHello",
+      "address": "js"
     }
   ]
 }
